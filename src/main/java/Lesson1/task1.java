@@ -20,7 +20,7 @@ public class task1 {
      *
      * Вычисление квадрата вещественного числа
      */
-    double sqrDouble(double x) {
+    public double sqrDouble(double x) {
         return x * x;
     }
 
@@ -30,7 +30,7 @@ public class task1 {
      *
      * Вычисление дискриминанта квадратного уравнения
      */
-    double discriminant(double a, double b, double c) {
+    public double  discriminant(double a, double b, double c) {
         return (sqrDouble(b) - 4 * a * c);
     }
 
