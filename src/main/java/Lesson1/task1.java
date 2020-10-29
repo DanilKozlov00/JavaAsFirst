@@ -10,7 +10,7 @@ public class task1 {
      *
      * Вычисление квадрата целого числа
      */
-    int sqr(int x) {
+    public int sqr(int x) {
         return x * x;
     }
 
