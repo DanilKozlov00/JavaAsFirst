@@ -38,9 +38,9 @@ class task1Test {
     @Test
     @Tag("Example")
     void quadraticEquationRoot() {
-        assertEquals(1.0, task1.quadraticRootProduct(1.0, -2.0, 1.0), 1e-13);
-        assertEquals(9.0, task1.quadraticRootProduct(1.0, 6.0, 9.0), 1e-13);
-        assertEquals(2.0, task1.quadraticRootProduct(1.0, 3.0, 2.0), 1e-13);
+        assertEquals(1.0, task1.quadraticEquationRoot(1.0, -2.0, 1.0), 1e-13);
+        assertEquals(9.0, task1.quadraticEquationRoot(1.0, 6.0, 9.0), 1e-13);
+        assertEquals(2.0, task1.quadraticEquationRoot(1.0, 3.0, 2.0), 1e-13);
     }
 
     @Test
