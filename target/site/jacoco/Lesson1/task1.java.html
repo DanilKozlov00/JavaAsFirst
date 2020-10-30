@@ -1,9 +1,9 @@
-package Lesson1;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>task1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Test</a> &gt; <a href="index.source.html" class="el_package">Lesson1</a> &gt; <span class="el_source">task1.java</span></div><h1>task1.java</h1><pre class="source lang-java linenums">package Lesson1;
 
 import static java.lang.Math.PI;
 import static java.lang.StrictMath.sqrt;
 
-public class task1 {
+<span class="fc" id="L6">public class task1 {</span>
 
     public int salary;
 
@@ -13,7 +13,7 @@ public class task1 {
      * Вычисление квадрата целого числа
      */
     public int sqr(int x) {
-        return x * x;
+<span class="fc" id="L16">        return x * x;</span>
     }
 
 
@@ -23,7 +23,7 @@ public class task1 {
      * Вычисление квадрата вещественного числа
      */
     public double sqrDouble(double x) {
-        return x * x;
+<span class="fc" id="L26">        return x * x;</span>
     }
 
 
@@ -33,7 +33,7 @@ public class task1 {
      * Вычисление дискриминанта квадратного уравнения
      */
     public double  discriminant(double a, double b, double c) {
-        return (sqrDouble(b) - 4 * a * c);
+<span class="fc" id="L36">        return (sqrDouble(b) - 4 * a * c);</span>
     }
 
 
@@ -43,7 +43,7 @@ public class task1 {
      * Поиск одного из корней квадратного уравнения
      */
     double quadraticEquationRoot(double a, double b, double c) {
-        return (-b + sqrt(discriminant(a, b, c))) / (2 * a);
+<span class="fc" id="L46">        return (-b + sqrt(discriminant(a, b, c))) / (2 * a);</span>
     }
 
 
@@ -53,10 +53,10 @@ public class task1 {
      * Поиск произведения корней квадратного уравнения
      */
     double quadraticRootProduct(double a, double b, double c) {
-        double sd = sqrt(discriminant(a, b, c));
-        double x1 = (-b + sd) / (2 * a);
-        double x2 = (-b - sd) / (2 * a);
-        return x1 * x2;
+<span class="fc" id="L56">        double sd = sqrt(discriminant(a, b, c));</span>
+<span class="fc" id="L57">        double x1 = (-b + sd) / (2 * a);</span>
+<span class="fc" id="L58">        double x2 = (-b - sd) / (2 * a);</span>
+<span class="fc" id="L59">        return x1 * x2;</span>
     }
 
 
@@ -67,99 +67,100 @@ public class task1 {
      * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
      */
     int seconds(int hours, int minutes, int seconds) {
-        return hours * 60 * 60 + minutes * 60 + seconds;
+<span class="fc" id="L70">        return hours * 60 * 60 + minutes * 60 + seconds;</span>
     }
 
 
     /**
      * Тривиальная
-     * <p>
+     * &lt;p&gt;
      * Пользователь задает длину отрезка в саженях, аршинах и вершках (например, 8 саженей 2 аршина 11 вершков).
      * Определить длину того же отрезка в метрах (в данном случае 18.98).
      * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
      */
     double lengthInMeters(int sagenes, int arshins, int vershoks) {
-        return (vershoks * 4.445 + arshins * (16 * 4.445) + sagenes * (48 * 4.445)) / 100;
+<span class="fc" id="L82">        return (vershoks * 4.445 + arshins * (16 * 4.445) + sagenes * (48 * 4.445)) / 100;</span>
     }
 
 
     /**
      * Тривиальная
-     * <p>
+     * &lt;p&gt;
      * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
      * Вывести значение того же угла в радианах (например, 0.63256).
      */
     double angleInRadian(int deg, int min, int sec) {
-        return (deg * (PI / 180)) + (min * (PI / (180 * 60))) + (sec * (PI / (180 * 60 * 60)));
+<span class="fc" id="L93">        return (deg * (PI / 180)) + (min * (PI / (180 * 60))) + (sec * (PI / (180 * 60 * 60)));</span>
     }
 
 
     /**
      * Тривиальная
-     * <p>
+     * &lt;p&gt;
      * Найти длину отрезка, соединяющего точки на плоскости с координатами (x1, y1) и (x2, y2).
      * Например, расстояние между (3, 0) и (0, 4) равно 5
      */
     double trackLength(double x1, double y1, double x2, double y2) {
-        return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+<span class="fc" id="L104">        return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));</span>
     }
 
 
     /**
      * Простая
-     * <p>
+     * &lt;p&gt;
      * Пользователь задает целое число, большее 100 (например, 3801).
      * Определить третью цифру справа в этом числе (в данном случае 8).
      */
     int thirdDigit(int number) {
-        int digit = number;
-        digit = digit / 100;
-        while (digit >= 10) {
-            digit %= 10;
+<span class="fc" id="L115">        int digit = number;</span>
+<span class="fc" id="L116">        digit = digit / 100;</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        while (digit &gt;= 10) {</span>
+<span class="fc" id="L118">            digit %= 10;</span>
         }
-        return digit;
+<span class="fc" id="L120">        return digit;</span>
     }
 
 
     /**
      * Простая
-     * <p>
+     * &lt;p&gt;
      * Поезд вышел со станции отправления в h1 часов m1 минут (например в 9:25) и
      * прибыл на станцию назначения в h2 часов m2 минут того же дня (например в 13:01).
      * Определите время поезда в пути в минутах (в данном случае 216).
      */
     int travelMinutes(int hoursDepart, int minutesDepart, int hoursArrive, int minutesArrive) {
-        return (hoursArrive * 60 + minutesArrive) - (hoursDepart * 60 + minutesDepart);
+<span class="fc" id="L132">        return (hoursArrive * 60 + minutesArrive) - (hoursDepart * 60 + minutesDepart);</span>
     }
 
 
     /**
      * Простая
-     * <p>
+     * &lt;p&gt;
      * Человек положил в банк сумму в s рублей под p% годовых (проценты начисляются в конце года).
      * Сколько денег будет на счету через 3 года (с учётом сложных процентов)?
      * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
      */
     double accountInThreeYears(int initial, int percent) {
-        double Money = initial;
-        for (int i = 0; i < 3; i++) {
-            Money += Money / 100 * percent;
+<span class="fc" id="L144">        double Money = initial;</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">        for (int i = 0; i &lt; 3; i++) {</span>
+<span class="fc" id="L146">            Money += Money / 100 * percent;</span>
         }
-        return Money;
+<span class="fc" id="L148">        return Money;</span>
     }
 
 
     /**
      * Простая
-     * <p>
+     * &lt;p&gt;
      * Пользователь задает целое трехзначное число (например, 478).
      * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
      */
     int numberRevert(int number) {
-        int units = number % 10;
-        int hundreds = number / 100;
-        int dozens = number - (hundreds * 100 + units);
-        return units * 100 + dozens + hundreds;
+<span class="fc" id="L159">        int units = number % 10;</span>
+<span class="fc" id="L160">        int hundreds = number / 100;</span>
+<span class="fc" id="L161">        int dozens = number - (hundreds * 100 + units);</span>
+<span class="fc" id="L162">        return units * 100 + dozens + hundreds;</span>
     }
 
 }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

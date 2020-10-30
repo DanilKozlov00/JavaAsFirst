@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IfElse.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Test</a> &gt; <a href="index.source.html" class="el_package">Lesson2</a> &gt; <span class="el_source">IfElse.java</span></div><h1>IfElse.java</h1><pre class="source lang-java linenums">package Lesson2;
+
+import Lesson1.task1;
+
+import static java.lang.StrictMath.max;
+import static java.lang.StrictMath.sqrt;
+
+
+<span class="fc" id="L9">public class IfElse {</span>
+
+<span class="fc" id="L11">    Lesson1.task1 task1 = new task1();</span>
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Найти число корней квадратного уравнения ax^2 + bx + c = 0
+     */
+    int quadraticRootNumber(double a, double b, double c) {
+<span class="fc" id="L19">        double discriminant = task1.discriminant(a, b, c);</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (discriminant &gt; 0.0) return 2;</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        else if (discriminant == 0) return 1;</span>
+<span class="fc" id="L22">        else return 0;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Получить строковую нотацию для оценки по пятибалльной системе
+     */
+    String gradeNotation(int grade) {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (grade == 5) return &quot;отлично&quot;;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        else if (grade == 4) return &quot;хорошо&quot;;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        else if (grade == 3) return &quot;удовлетворительно&quot;;</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        else if (grade == 2) return &quot;неудовлетворительно&quot;;</span>
+<span class="fc" id="L36">        else return &quot;несуществующая оценка &quot; + grade;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Найти наименьший корень биквадратного уравнения ax^4 + bx^2 + c = 0
+     */
+    double minBiRoot(double a, double b, double c) {
+        // 1: в главной ветке if выполняется НЕСКОЛЬКО операторов
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (a == 0.0) {</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">            if (b == 0.0) return Double.NaN; // ... и ничего больше не делать</span>
+<span class="fc" id="L49">            double bc = -c / b;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (bc &lt; 0.0) return Double.NaN;// ... и ничего больше не делать</span>
+<span class="fc" id="L51">            return -sqrt(bc);</span>
+            // Дальше функция при a == 0.0 не идёт
+        }
+<span class="fc" id="L54">        double d = task1.discriminant(a, b, c);   // 2</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (d &lt; 0.0) return Double.NaN;  // 3</span>
+        // 4
+<span class="fc" id="L57">        double y1 = (-b + sqrt(d)) / (2 * a);</span>
+<span class="fc" id="L58">        double y2 = (-b - sqrt(d)) / (2 * a);</span>
+<span class="fc" id="L59">        double y3 = max(y1, y2);      // 5</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (y3 &lt; 0.0) return Double.NaN; // 6</span>
+<span class="fc" id="L61">        return -sqrt(y3);          // 7</span>
+    }
+
+    /**
+     * Простая
+     * &lt;p&gt;
+     * Мой возраст. Для заданного 0 &lt; n &lt; 200, рассматриваемого как возраст человека,
+     * вернуть строку вида: «21 год», «32 года», «12 лет».
+     */
+    String ageDescription(int age) {
+<span class="fc bfc" id="L71" title="All 4 branches covered.">        if (age % 100 &gt;= 11 &amp;&amp; age % 100 &lt;= 14) return age + &quot; лет&quot;;</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        else if (age % 10 == 1) return age + &quot; год&quot;;</span>
+<span class="pc bpc" id="L73" title="1 of 4 branches missed.">        else if (age % 10 &gt;= 2 &amp;&amp; age % 10 &lt;= 4) return age + &quot; года&quot;;</span>
+<span class="fc" id="L74">        else return age + &quot; лет&quot;;</span>
+    }
+
+
+    /**
+     * Простая
+     * &lt;p&gt;
+     * Путник двигался t1 часов со скоростью v1 км/час, затем t2 часов — со скоростью v2 км/час
+     * и t3 часов — со скоростью v3 км/час.
+     * Определить, за какое время он одолел первую половину пути?
+     */
+    double timeForHalfWay(
+            double t1, double v1,
+            double t2, double v2,
+            double t3, double v3
+    ) {
+<span class="fc" id="L90">        double HalfWay = (t1 * v1 + t2 * v2 + t3 * v3) / 2;</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (HalfWay / v1 &lt;= t1) {</span>
+<span class="fc" id="L92">            return HalfWay / v1;</span>
+        }
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if ((HalfWay - t1 * v1) / v2 &lt;= t2) {</span>
+<span class="fc" id="L95">            return t1 + (HalfWay - t1 * v1) / v2;</span>
+        }
+<span class="fc" id="L97">        return t1 + t2 + ((HalfWay - t1 * v1 - t2 * v2) / v3);</span>
+    }
+
+
+    /**
+     * Простая
+     * &lt;p&gt;
+     * Нa шахматной доске стоят черный король и две белые ладьи (ладья бьет по горизонтали и вертикали).
+     * Определить, не находится ли король под боем, а если есть угроза, то от кого именно.
+     * Вернуть 0, если угрозы нет, 1, если угроза только от первой ладьи, 2, если только от второй ладьи,
+     * и 3, если угроза от обеих ладей.
+     * Считать, что ладьи не могут загораживать друг друга
+     */
+    int whichRookThreatens(
+            int kingX, int kingY,
+            int rookX1, int rookY1,
+            int rookX2, int rookY2
+    ) {
+<span class="fc bfc" id="L115" title="All 8 branches covered.">        if ((kingX == rookX1 || kingX == rookX2) &amp;&amp; (kingY == rookY1 || kingY == rookY2)) {</span>
+<span class="fc" id="L116">            return 3;</span>
+<span class="fc bfc" id="L117" title="All 4 branches covered.">        } else if (kingX == rookX1 || kingY == rookY1) {</span>
+<span class="fc" id="L118">            return 1;</span>
+<span class="fc bfc" id="L119" title="All 4 branches covered.">        } else if (kingX == rookX2 || kingY == rookY2) {</span>
+<span class="fc" id="L120">            return 2;</span>
+<span class="fc" id="L121">        } else return 0;</span>
+    }
+
+
+    /**
+     * Простая
+     * &lt;p&gt;
+     * На шахматной доске стоят черный король и белые ладья и слон
+     * (ладья бьет по горизонтали и вертикали, слон — по диагоналям).
+     * Проверить, есть ли угроза королю и если есть, то от кого именно.
+     * Вернуть 0, если угрозы нет, 1, если угроза только от ладьи, 2, если только от слона,
+     * и 3, если угроза есть и от ладьи и от слона.
+     * Считать, что ладья и слон не могут загораживать друг друга.
+     */
+    int rookOrBishopThreatens(
+            int kingX, int kingY,
+            int rookX, int rookY,
+            int bishopX, int bishopY
+    ) {
+<span class="fc bfc" id="L140" title="All 6 branches covered.">        if ((kingX == rookX || kingY == rookY) &amp;&amp; (Math.abs(kingX - bishopX) == Math.abs(kingY - bishopY))) {</span>
+<span class="fc" id="L141">            return 3;</span>
+<span class="fc bfc" id="L142" title="All 4 branches covered.">        } else if (kingX == rookX || kingY == rookY) {</span>
+<span class="fc" id="L143">            return 1;</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">        } else if (Math.abs((kingX - bishopX)) == Math.abs(kingY - bishopY)) {</span>
+<span class="fc" id="L145">            return 2;</span>
+<span class="fc" id="L146">        } else return 0;</span>
+    }
+
+
+    /**
+     * Простая
+     * &lt;p&gt;
+     * Треугольник задан длинами своих сторон a, b, c.
+     * Проверить, является ли данный треугольник остроугольным (вернуть 0),
+     * прямоугольным (вернуть 1) или тупоугольным (вернуть 2).
+     * Если такой треугольник не существует, вернуть -1.
+     */
+    int triangleKind(double a, double b, double c) {
+<span class="fc bfc" id="L159" title="All 6 branches covered.">        if (a + b &gt; c &amp;&amp; a + c &gt; b &amp;&amp; b + c &gt; a) {</span>
+
+            String flag;
+
+<span class="fc bfc" id="L163" title="All 2 branches covered.">            if (max(max(a, b), c) == a) {</span>
+<span class="fc" id="L164">                flag = &quot;a&quot;;</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">            } else if (max(max(a, b), c) == b) {</span>
+<span class="fc" id="L166">                flag = &quot;b&quot;;</span>
+<span class="fc" id="L167">            } else flag = &quot;c&quot;;</span>
+
+<span class="fc bfc" id="L169" title="All 2 branches covered.">            if (flag.equals(&quot;a&quot;)) {</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">                if (a * a == b * b + c * c) {</span>
+<span class="fc" id="L171">                    return 1;</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">                } else if (a * a &lt; b * b + c * c) {</span>
+<span class="fc" id="L173">                    return 0;</span>
+<span class="fc" id="L174">                } else return 2;</span>
+
+<span class="fc bfc" id="L176" title="All 2 branches covered.">            } else if (flag.equals(&quot;b&quot;)) {</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">                if (b * b == a * a + c * c) {</span>
+<span class="fc" id="L178">                    return 1;</span>
+<span class="fc bfc" id="L179" title="All 2 branches covered.">                } else if (b * b &lt; a * a + c * c) {</span>
+<span class="fc" id="L180">                    return 0;</span>
+<span class="fc" id="L181">                } else return 2;</span>
+
+            } else {
+<span class="fc bfc" id="L184" title="All 2 branches covered.">                if (c * c == a * a + b * b) {</span>
+<span class="fc" id="L185">                    return 1;</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">                } else if (c * c &lt; a * a + b * b) {</span>
+<span class="fc" id="L187">                    return 0;</span>
+<span class="fc" id="L188">                } else return 2;</span>
+            }
+        }
+<span class="fc" id="L191">        return -1;</span>
+    }
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * Даны четыре точки на одной прямой: A, B, C и D.
+     * Координаты точек a, b, c, d соответственно, b &gt;= a, d &gt;= c.
+     * Найти длину пересечения отрезков AB и CD.
+     * Если пересечения нет, вернуть -1.
+     */
+    int segmentLength(int a, int b, int c, int d) {
+<span class="fc bfc" id="L204" title="All 8 branches covered.">        if ((c &gt;= a &amp;&amp; c &lt;= b) || (d &gt;= a &amp;&amp; d &lt;= b)) {</span>
+<span class="pc bpc" id="L205" title="2 of 8 branches missed.">            if (c &gt;= a &amp;&amp; c &lt;= b &amp;&amp; d &gt;= a &amp;&amp; d &lt;= b) {</span>
+<span class="fc" id="L206">                return d - c;</span>
+<span class="pc bpc" id="L207" title="1 of 4 branches missed.">            } else if (c &gt;= a &amp;&amp; c &lt;= b) {</span>
+<span class="fc" id="L208">                return b - c;</span>
+            } else  {
+<span class="fc" id="L210">                return d - a;</span>
+            }
+<span class="fc bfc" id="L212" title="All 4 branches covered.">        } else if (a &gt;= c &amp;&amp; b &lt;= d) {</span>
+<span class="fc" id="L213">            return b - a;</span>
+<span class="fc" id="L214">        } else return -1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

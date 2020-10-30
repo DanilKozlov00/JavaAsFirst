@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>list.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Test</a> &gt; <a href="index.source.html" class="el_package">Lesson4</a> &gt; <span class="el_source">list.java</span></div><h1>list.java</h1><pre class="source lang-java linenums">package Lesson4;
+
+import java.lang.reflect.Array;
+import java.util.*;
+
+import Lesson1.task1;
+
+import static java.lang.StrictMath.sqrt;
+
+<span class="fc" id="L10">public class list {</span>
+
+<span class="fc" id="L12">    task1 task1 = new task1();</span>
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Найти все корни уравнения x^2 = y
+     */
+    LinkedList&lt;Double&gt; sqRoots(double y) {
+<span class="fc" id="L20">        LinkedList&lt;Double&gt; result = new LinkedList&lt;&gt;();</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (y &lt; 0) return result;</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        else if (y == 0.0) {</span>
+<span class="fc" id="L23">            result.add(0.0);</span>
+<span class="fc" id="L24">            return result;</span>
+        } else {
+<span class="fc" id="L26">            double root = sqrt(y);</span>
+<span class="fc" id="L27">            result.add(-root);</span>
+<span class="fc" id="L28">            result.add(root);</span>
+<span class="fc" id="L29">            return result;</span>
+        }
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Найти все корни биквадратного уравнения ax^4 + bx^2 + c = 0.
+     * Вернуть список корней (пустой, если корней нет)
+     */
+    LinkedList&lt;Double&gt; biRoots(double a, double b, double c) {
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (a == 0.0) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (b == 0.0) return new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L43">            else return sqRoots(-c / b);</span>
+        }
+<span class="fc" id="L45">        double d = task1.discriminant(a, b, c);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (d &lt; 0.0) return new LinkedList&lt;Double&gt;();</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (d == 0.0) return sqRoots(-b / (2 * a));</span>
+<span class="fc" id="L48">        double y1 = (-b + sqrt(d)) / (2 * a);</span>
+<span class="fc" id="L49">        double y2 = (-b - sqrt(d)) / (2 * a);</span>
+<span class="fc" id="L50">        LinkedList&lt;Double&gt; result = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L51">        result.addAll(sqRoots(y1));</span>
+<span class="fc" id="L52">        result.addAll(sqRoots(y2));</span>
+<span class="fc" id="L53">        return result;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Выделить в список отрицательные элементы из заданного списка
+     */
+    LinkedList&lt;Integer&gt; negativeList(LinkedList&lt;Integer&gt; list) {
+<span class="fc" id="L63">        LinkedList&lt;Integer&gt; result = new LinkedList&lt;&gt;();</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (int element : list) {</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            if (element &lt; 0) {</span>
+<span class="fc" id="L66">                result.add(element);</span>
+            }
+<span class="fc" id="L68">        }</span>
+<span class="fc" id="L69">        return result;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Изменить знак для всех положительных элементов списка
+     */
+    LinkedList&lt;Integer&gt; invertPositives(LinkedList&lt;Integer&gt; list) {
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if (list.get(i) &gt; 0) {</span>
+<span class="fc" id="L81">                list.set(i, list.get(i) * -1);</span>
+            }
+        }
+<span class="fc" id="L84">        return list;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Из имеющегося списка целых чисел, сформировать список их квадратов
+     */
+    LinkedList&lt;Integer&gt; squares(LinkedList&lt;Integer&gt; list) {
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="fc" id="L95">            list.set(i, list.get(i) * list.get(i));</span>
+        }
+<span class="fc" id="L97">        return list;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * Из имеющихся целых чисел, заданного через vararg-параметр, сформировать массив их квадратов
+     */
+    ArrayList&lt;Integer&gt; squares(int... array) {
+<span class="fc" id="L107">        ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        for (int i : array) {</span>
+<span class="fc" id="L109">            arrayList.add(i * i);</span>
+        }
+<span class="fc" id="L111">        return arrayList;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * По заданной строке str определить, является ли она палиндромом.
+     * В палиндроме первый символ должен быть равен последнему, второй предпоследнему и т.д.
+     * Одни и те же буквы в разном регистре следует считать равными с точки зрения данной задачи.
+     * Пробелы не следует принимать во внимание при сравнении символов, например, строка
+     * &quot;А роза упала на лапу Азора&quot; является палиндромом.
+     */
+    boolean isPalindrome(String str) {
+<span class="fc" id="L125">        String lowerCase = str.toLowerCase().replaceAll(&quot; &quot;, &quot;&quot;);</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        for (int i = 0; i &lt; lowerCase.length(); i++) {</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">            if (lowerCase.charAt(i) != lowerCase.charAt(lowerCase.length() - i - 1)) return false;</span>
+        }
+<span class="fc" id="L129">        return true;</span>
+    }
+
+
+    /**
+     * Пример
+     * &lt;p&gt;
+     * По имеющемуся списку целых чисел, например [3, 6, 5, 4, 9], построить строку с примером их суммирования:
+     * 3 + 6 + 5 + 4 + 9 = 27 в данном случае.
+     */
+    String buildSumExample(LinkedList&lt;Integer&gt; list) {
+<span class="fc" id="L140">        StringBuilder result = new StringBuilder(&quot;&quot;);</span>
+<span class="fc" id="L141">        int sum = 0;</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">        for (int i : list) {</span>
+<span class="fc" id="L143">            result.append(i).append(&quot; + &quot;);</span>
+<span class="fc" id="L144">            sum += i;</span>
+<span class="fc" id="L145">        }</span>
+<span class="fc" id="L146">        result.replace(result.length() - 2, result.length() - 1, &quot;= &quot; + sum);</span>
+<span class="fc" id="L147">        return result.toString();</span>
+    }
+
+
+    /**
+     * Простая
+     * &lt;p&gt;
+     * Найти модуль заданного вектора, представленного в виде списка v,
+     * по формуле abs = sqrt(a1^2 + a2^2 + ... + aN^2).
+     * Модуль пустого вектора считать равным 0.0.
+     */
+    double abs(Vector&lt;Double&gt; vector) {
+<span class="fc" id="L159">        int sum = 0;</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">        if (!vector.isEmpty()) {</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">            for (double element : vector) {</span>
+<span class="fc" id="L162">                sum += task1.sqrDouble(element);</span>
+<span class="fc" id="L163">            }</span>
+        }
+<span class="fc" id="L165">        return sqrt(sum);</span>
+    }
+
+
+    /**
+     * Простая
+     * &lt;p&gt;
+     * Рассчитать среднее арифметическое элементов списка list. Вернуть 0.0, если список пуст
+     */
+    double mean(LinkedList&lt;Double&gt; list) {
+<span class="fc" id="L175">        double sum = 0.0;</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">        if (!list.isEmpty()) {</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">            for (double element : list) {</span>
+<span class="fc" id="L178">                sum += element;</span>
+<span class="fc" id="L179">            }</span>
+<span class="fc" id="L180">            return sum / list.size();</span>
+        } else {
+<span class="fc" id="L182">            return 0.0;</span>
+        }
+    }
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * Центрировать заданный список list, уменьшив каждый элемент на среднее арифметическое всех элементов.
+     * Если список пуст, не делать ничего. Вернуть изменённый список.
+     * &lt;p&gt;
+     * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
+     */
+    LinkedList&lt;Double&gt; center(LinkedList&lt;Double&gt; list) {
+<span class="fc" id="L196">        double sum = 0.0;</span>
+<span class="fc bfc" id="L197" title="All 2 branches covered.">        if (!list.isEmpty()) {</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">            for (double element : list) {</span>
+<span class="fc" id="L199">                sum += element;</span>
+<span class="fc" id="L200">            }</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">            for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="fc" id="L202">                list.set(i, list.get(i) - sum / list.size());</span>
+            }
+        }
+<span class="fc" id="L205">        return list;</span>
+    }
+
+
+    //ArrrayList
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * Найти скалярное произведение двух векторов равной размерности,
+     * представленные в виде списков a и b. Скалярное произведение считать по формуле:
+     * C = a1b1 + a2b2 + ... + aNbN. Произведение пустых векторов считать равным 0.
+     */
+    int times(ArrayList&lt;Integer&gt; a, ArrayList&lt;Integer&gt; b) {
+<span class="fc" id="L220">        int c = 0;</span>
+<span class="fc bfc" id="L221" title="All 2 branches covered.">        if (a.isEmpty()) {</span>
+<span class="fc" id="L222">            return 0;</span>
+        } else {
+<span class="fc bfc" id="L224" title="All 2 branches covered.">            for (int i = 0; i &lt; a.size(); i++) {</span>
+<span class="fc" id="L225">                c += a.get(i) * b.get(i);</span>
+            }
+<span class="fc" id="L227">            return c;</span>
+        }
+    }
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * Рассчитать значение многочлена при заданном x:
+     * p(x) = p0 + p1*x + p2*x^2 + p3*x^3 + ... + pN*x^N.
+     * Коэффициенты многочлена заданы списком p: (p0, p1, p2, p3, ..., pN).
+     * Значение пустого многочлена равно 0 при любом x.
+     */
+    int polynom(ArrayList&lt;Integer&gt; p, int x) {
+<span class="fc" id="L241">        int poly = 0;</span>
+<span class="fc bfc" id="L242" title="All 2 branches covered.">        if (p.isEmpty()) {</span>
+<span class="fc" id="L243">            return 0;</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">        } else if (p.size() == 1) {</span>
+<span class="fc" id="L245">            return p.get(0);</span>
+        } else {
+<span class="fc bfc" id="L247" title="All 2 branches covered.">            for (int i = 0; i &lt; p.size(); i++) {</span>
+<span class="fc" id="L248">                poly += p.get(i) * Math.pow(x, i);</span>
+            }
+<span class="fc" id="L250">            return poly;</span>
+        }
+    }
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * В заданном списке list каждый элемент, кроме первого, заменить
+     * суммой данного элемента и всех предыдущих.
+     * Например: 1, 2, 3, 4 -&gt; 1, 3, 6, 10.
+     * Пустой список не следует изменять. Вернуть изменённый список.
+     * &lt;p&gt;
+     * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
+     */
+    ArrayList&lt;Integer&gt; accumulate(ArrayList&lt;Integer&gt; list) {
+<span class="fc" id="L266">        int sum = 0;</span>
+<span class="fc bfc" id="L267" title="All 2 branches covered.">        if (!list.isEmpty()) {</span>
+<span class="fc" id="L268">            sum = list.get(0);</span>
+<span class="fc bfc" id="L269" title="All 2 branches covered.">            for (int i = 1; i &lt; list.size(); i++) {</span>
+<span class="fc" id="L270">                sum += list.get(i);</span>
+<span class="fc" id="L271">                list.set(i, sum);</span>
+            }
+        }
+<span class="fc" id="L274">        return list;</span>
+    }
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * Разложить заданное натуральное число n &gt; 1 на простые множители.
+     * Результат разложения вернуть в виде списка множителей, например 75 -&gt; (3, 5, 5).
+     * Множители в списке должны располагаться по возрастанию.
+     */
+    ArrayList&lt;Integer&gt; factorize(int n) {
+<span class="fc" id="L286">        ArrayList&lt;Integer&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L287">        int del = 2;</span>
+<span class="fc" id="L288">        int temp = n;</span>
+<span class="fc bfc" id="L289" title="All 2 branches covered.">        for (int i = del; i &lt;= n; i++) {</span>
+<span class="fc bfc" id="L290" title="All 2 branches covered.">            if (temp % del == 0) {</span>
+<span class="fc" id="L291">                result.add(del);</span>
+<span class="fc" id="L292">                temp /= del;</span>
+<span class="fc" id="L293">                del = 2;</span>
+            }
+<span class="fc" id="L295">            del++;</span>
+        }
+<span class="fc" id="L297">        return result;</span>
+    }
+
+
+    /**
+     * Сложная
+     * &lt;p&gt;
+     * Разложить заданное натуральное число n &gt; 1 на простые множители.
+     * Результат разложения вернуть в виде строки, например 75 -&gt; 3*5*5
+     * Множители в результирующей строке должны располагаться по возрастанию.
+     */
+    String factorizeToString(int n) {
+<span class="fc" id="L309">        ArrayList&lt;Integer&gt; result = factorize(n);</span>
+<span class="fc" id="L310">        StringBuilder str = new StringBuilder();</span>
+<span class="fc bfc" id="L311" title="All 2 branches covered.">        for (int integer : result) {</span>
+<span class="fc" id="L312">            str.append(integer).append(&quot;*&quot;);</span>
+<span class="fc" id="L313">        }</span>
+<span class="fc" id="L314">        str.replace(str.length() - 1, str.length(), &quot;&quot;);</span>
+<span class="fc" id="L315">        return str.toString();</span>
+    }
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * Перевести заданное целое число n &gt;= 0 в систему счисления с основанием base &gt; 1.
+     * Результат перевода вернуть в виде списка цифр в base-ичной системе от старшей к младшей,
+     * например: n = 100, base = 4 -&gt; (1, 2, 1, 0) или n = 250, base = 14 -&gt; (1, 3, 12)
+     */
+    ArrayList&lt;Integer&gt; convert(int n, int base) {
+<span class="fc" id="L327">        ArrayList&lt;Integer&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L328">        int temp = n;</span>
+<span class="fc bfc" id="L329" title="All 2 branches covered.">        while (temp &gt; 0) {</span>
+<span class="fc" id="L330">            result.add(temp % base);</span>
+<span class="fc" id="L331">            temp /= base;</span>
+        }
+<span class="fc" id="L333">        Collections.reverse(result);</span>
+<span class="fc" id="L334">        return result;</span>
+    }
+
+
+    /**
+     * Сложная
+     * &lt;p&gt;
+     * Перевести заданное целое число n &gt;= 0 в систему счисления с основанием 1 &lt; base &lt; 37.
+     * Результат перевода вернуть в виде строки, цифры более 9 представлять латинскими
+     * строчными буквами: 10 -&gt; a, 11 -&gt; b, 12 -&gt; c и так далее.
+     * Например: n = 100, base = 4 -&gt; 1210, n = 250, base = 14 -&gt; 13c
+     * &lt;p&gt;
+     * Использовать функции стандартной библиотеки, напрямую и полностью решающие данную задачу
+     * (например, n.toString(base) и подобные), запрещается.
+     */
+    String convertToString(int n, int base) {
+<span class="fc" id="L350">        StringBuilder str = new StringBuilder();</span>
+<span class="fc" id="L351">        ArrayList&lt;Integer&gt; result = convert(n, base);</span>
+<span class="fc" id="L352">        StringBuilder alphabet = new StringBuilder(&quot;abcdefghijklmnopqrstuvwxyz&quot;);</span>
+<span class="fc bfc" id="L353" title="All 2 branches covered.">        for (int integer : result) {</span>
+<span class="fc bfc" id="L354" title="All 2 branches covered.">            if (integer &gt;= 10) {</span>
+<span class="fc" id="L355">                str.append(alphabet.charAt(integer - 10));</span>
+            } else {
+<span class="fc" id="L357">                str.append(integer);</span>
+            }
+<span class="fc" id="L359">        }</span>
+<span class="fc" id="L360">        return str.toString();</span>
+    }
+
+
+    /**
+     * Средняя
+     * &lt;p&gt;
+     * Перевести число, представленное списком цифр digits от старшей к младшей,
+     * из системы счисления с основанием base в десятичную.
+     * Например: digits = (1, 3, 12), base = 14 -&gt; 250
+     */
+    int decimal(ArrayList&lt;Integer&gt; digits, int base) {
+<span class="fc" id="L372">        int digit = 0;</span>
+<span class="fc bfc" id="L373" title="All 2 branches covered.">        for (int i = 0; i &lt; digits.size(); i++) {</span>
+<span class="fc" id="L374">            digit += digits.get(i) * Math.pow(base, (digits.size() - 1 - i));</span>
+        }
+<span class="fc" id="L376">        return digit;</span>
+    }
+
+
+    /**
+     * Сложная
+     * &lt;p&gt;
+     * Перевести число, представленное цифровой строкой str,
+     * из системы счисления с основанием base в десятичную.
+     * Цифры более 9 представляются латинскими строчными буквами:
+     * 10 -&gt; a, 11 -&gt; b, 12 -&gt; c и так далее.
+     * Например: str = &quot;13c&quot;, base = 14 -&gt; 250
+     * &lt;p&gt;
+     * Использовать функции стандартной библиотеки, напрямую и полностью решающие данную задачу
+     * (например, str.toInt(base)), запрещается.
+     */
+    int decimalFromString(String str, int base) {
+<span class="fc" id="L393">        ArrayList&lt;Integer&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L394">        StringBuilder alphabet = new StringBuilder(&quot;abcdefghijklmnopqrstuvwxyz&quot;);</span>
+<span class="fc bfc" id="L395" title="All 2 branches covered.">        for (int i = 0; i &lt; str.length(); i++) {</span>
+<span class="pc bpc" id="L396" title="1 of 4 branches missed.">            if (str.charAt(i) &gt;= 48 &amp;&amp; str.charAt(i) &lt;= 57) {</span>
+<span class="fc" id="L397">                result.add(Integer.parseInt(String.valueOf(str.charAt(i))));</span>
+            } else {
+<span class="fc bfc" id="L399" title="All 2 branches covered.">                for (int j = 0; j &lt; alphabet.length(); j++) {</span>
+<span class="fc bfc" id="L400" title="All 2 branches covered.">                    if (str.charAt(i) == alphabet.charAt(j)) {</span>
+<span class="fc" id="L401">                        result.add(j + 10);</span>
+                    }
+                }
+            }
+        }
+<span class="fc" id="L406">        return decimal(result, base);</span>
+    }
+
+
+    /**
+     * Сложная
+     * &lt;p&gt;
+     * Перевести натуральное число n &gt; 0 в римскую систему.
+     * Римские цифры: 1 = I, 4 = IV, 5 = V, 9 = IX, 10 = X, 40 = XL, 50 = L,
+     * 90 = XC, 100 = C, 400 = CD, 500 = D, 900 = CM, 1000 = M.
+     * Например: 23 = XXIII, 44 = XLIV, 100 = C
+     */
+    String roman(int n) {
+<span class="fc" id="L419">        ArrayList&lt;Integer&gt; romanDigitList = new ArrayList&lt;&gt;(Arrays.asList(1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000));</span>
+<span class="fc" id="L420">        ArrayList&lt;String&gt; romanAlpList = new ArrayList&lt;&gt;(Arrays.asList(&quot;I&quot;, &quot;IV&quot;, &quot;V&quot;, &quot;IX&quot;, &quot;X&quot;, &quot;XL&quot;, &quot;L&quot;, &quot;XC&quot;, &quot;C&quot;, &quot;CD&quot;, &quot;D&quot;, &quot;CM&quot;, &quot;M&quot;));</span>
+<span class="fc" id="L421">        StringBuilder str = new StringBuilder();</span>
+<span class="fc" id="L422">        int temp = n;</span>
+<span class="fc bfc" id="L423" title="All 2 branches covered.">        while (temp != 0) {</span>
+<span class="fc bfc" id="L424" title="All 2 branches covered.">            if (temp &gt;= 1000) {</span>
+<span class="fc" id="L425">                str.append(romanAlpList.get(romanAlpList.size() - 1));</span>
+<span class="fc" id="L426">                temp -= romanDigitList.get(romanDigitList.size() - 1);</span>
+            } else {
+<span class="pc bpc" id="L428" title="1 of 2 branches missed.">                for (int j = 0; j &lt; romanDigitList.size(); j++) {</span>
+<span class="fc bfc" id="L429" title="All 2 branches covered.">                    if (temp &lt;= romanDigitList.get(j)) {</span>
+<span class="fc bfc" id="L430" title="All 2 branches covered.">                        if (temp == romanDigitList.get(j)) {</span>
+<span class="fc" id="L431">                            str.append(romanAlpList.get(j));</span>
+<span class="fc" id="L432">                            temp -= romanDigitList.get(j);</span>
+<span class="fc" id="L433">                            break;</span>
+                        } else {
+<span class="fc" id="L435">                            str.append(romanAlpList.get(j - 1));</span>
+<span class="fc" id="L436">                            temp -= romanDigitList.get(j - 1);</span>
+<span class="fc" id="L437">                            break;</span>
+                        }
+                    }
+                }
+            }
+        }
+<span class="fc" id="L443">        return str.toString();</span>
+    }
+
+
+    /**
+     * Очень сложная
+     * &lt;p&gt;
+     * Записать заданное натуральное число 1..999999 прописью по-русски.
+     * Например, 375 = &quot;триста семьдесят пять&quot;,
+     * 23964 = &quot;двадцать три тысячи девятьсот шестьдесят четыре&quot;
+     */
+    String russian(int n) {
+<span class="fc" id="L455">        HashMap&lt;Integer, String&gt; map = new HashMap&lt;Integer, String&gt;();</span>
+<span class="fc" id="L456">        map.put(1, &quot;один&quot;);</span>
+<span class="fc" id="L457">        map.put(2, &quot;два&quot;);</span>
+<span class="fc" id="L458">        map.put(3, &quot;три&quot;);</span>
+<span class="fc" id="L459">        map.put(4, &quot;четыре&quot;);</span>
+<span class="fc" id="L460">        map.put(5, &quot;пять&quot;);</span>
+<span class="fc" id="L461">        map.put(6, &quot;шесть&quot;);</span>
+<span class="fc" id="L462">        map.put(7, &quot;семь&quot;);</span>
+<span class="fc" id="L463">        map.put(8, &quot;восемь&quot;);</span>
+<span class="fc" id="L464">        map.put(9, &quot;девять&quot;);</span>
+<span class="fc" id="L465">        map.put(10, &quot;десять&quot;);</span>
+<span class="fc" id="L466">        map.put(11, &quot;одиннадцать&quot;);</span>
+<span class="fc" id="L467">        map.put(12, &quot;двенадцать&quot;);</span>
+<span class="fc" id="L468">        map.put(13, &quot;тринадцать&quot;);</span>
+<span class="fc" id="L469">        map.put(14, &quot;четырнадцать&quot;);</span>
+<span class="fc" id="L470">        map.put(15, &quot;пятнадцать&quot;);</span>
+<span class="fc" id="L471">        map.put(16, &quot;шестнадцать&quot;);</span>
+<span class="fc" id="L472">        map.put(17, &quot;семнадцать&quot;);</span>
+<span class="fc" id="L473">        map.put(18, &quot;восемнадцать&quot;);</span>
+<span class="fc" id="L474">        map.put(19, &quot;девятнадцать&quot;);</span>
+<span class="fc" id="L475">        map.put(20, &quot;двадцать&quot;);</span>
+<span class="fc" id="L476">        map.put(30, &quot;тридцать&quot;);</span>
+<span class="fc" id="L477">        map.put(40, &quot;сорок&quot;);</span>
+<span class="fc" id="L478">        map.put(50, &quot;пятьдесят&quot;);</span>
+<span class="fc" id="L479">        map.put(60, &quot;шестьдесят&quot;);</span>
+<span class="fc" id="L480">        map.put(70, &quot;семьдесят&quot;);</span>
+<span class="fc" id="L481">        map.put(80, &quot;восемьдесят&quot;);</span>
+<span class="fc" id="L482">        map.put(90, &quot;девяносто&quot;);</span>
+<span class="fc" id="L483">        map.put(100, &quot;сто&quot;);</span>
+<span class="fc" id="L484">        map.put(200, &quot;двести&quot;);</span>
+<span class="fc" id="L485">        map.put(300, &quot;триста&quot;);</span>
+<span class="fc" id="L486">        map.put(400, &quot;четыреста&quot;);</span>
+<span class="fc" id="L487">        map.put(500, &quot;пятьсот&quot;);</span>
+<span class="fc" id="L488">        map.put(600, &quot;шестьсот&quot;);</span>
+<span class="fc" id="L489">        map.put(700, &quot;семьсот&quot;);</span>
+<span class="fc" id="L490">        map.put(800, &quot;восемьсот&quot;);</span>
+<span class="fc" id="L491">        map.put(900, &quot;девятьсот&quot;);</span>
+
+<span class="fc" id="L493">        ArrayList&lt;String&gt; resultPart2 = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L494">        ArrayList&lt;String&gt; resultPart1 = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L495">        int nPart1 = n / 1000;</span>
+<span class="fc" id="L496">        int nPart2 = n % 1000;</span>
+<span class="fc" id="L497">        int i = 10;</span>
+<span class="fc bfc" id="L498" title="All 2 branches covered.">        while (nPart2 &gt; 0) {</span>
+<span class="fc bfc" id="L499" title="All 2 branches covered.">            if (nPart2 % i == 0) {</span>
+<span class="fc" id="L500">                i *= 10;</span>
+<span class="fc" id="L501">                continue;</span>
+            }
+<span class="fc bfc" id="L503" title="All 6 branches covered.">            if ((i == 10) &amp;&amp; (nPart2 % 100 &gt;= 11 &amp;&amp; nPart2 % 100 &lt;= 19)) i = 100;</span>
+<span class="fc" id="L504">            resultPart2.add(0, map.get(nPart2 % i));</span>
+<span class="fc" id="L505">            nPart2 -= nPart2 % i;</span>
+        }
+<span class="fc bfc" id="L507" title="All 2 branches covered.">        if (nPart1 &gt; 0) {</span>
+<span class="fc" id="L508">            i = 10;</span>
+<span class="fc bfc" id="L509" title="All 2 branches covered.">            while (nPart1 &gt; 0) {</span>
+<span class="fc bfc" id="L510" title="All 2 branches covered.">                if (nPart1 % i == 0) {</span>
+<span class="fc" id="L511">                    i *= 10;</span>
+<span class="fc" id="L512">                    continue;</span>
+                }
+<span class="fc bfc" id="L514" title="All 6 branches covered.">                if ((i == 10) &amp;&amp; (nPart1 % 100 &gt;= 11 &amp;&amp; nPart1 % 100 &lt;= 19)) i = 100;</span>
+<span class="fc" id="L515">                resultPart1.add(0, map.get(nPart1 % i));</span>
+<span class="fc" id="L516">                nPart1 -= nPart1 % i;</span>
+            }
+<span class="fc" id="L518">            nPart1 = n / 1000;</span>
+
+<span class="pc bpc" id="L520" title="1 of 4 branches missed.">            if ((nPart1 % 10 == 1) &amp;&amp; (nPart1 % 100 != 11)) {</span>
+<span class="fc" id="L521">                resultPart1.remove(resultPart1.size() - 1);</span>
+<span class="fc" id="L522">                resultPart1.add(&quot;одна тысяча&quot;);</span>
+<span class="pc bpc" id="L523" title="1 of 4 branches missed.">            } else if ((nPart1 % 10 == 2) &amp;&amp; (nPart1 % 100 != 12)) {</span>
+<span class="fc" id="L524">                resultPart1.remove(resultPart1.size() - 1);</span>
+<span class="fc" id="L525">                resultPart1.add(&quot;две тысячи&quot;);</span>
+<span class="pc bpc" id="L526" title="1 of 4 branches missed.">            } else if ((nPart1 % 10 == 3) &amp;&amp; (nPart1 % 100 != 13)) {</span>
+<span class="fc" id="L527">                resultPart1.remove(resultPart1.size() - 1);</span>
+<span class="fc" id="L528">                resultPart1.add(&quot;три тысячи&quot;);</span>
+<span class="pc bpc" id="L529" title="1 of 4 branches missed.">            } else if ((nPart1 % 10 == 4) &amp;&amp; (nPart1 % 100 != 14)) {</span>
+<span class="fc" id="L530">                resultPart1.remove(resultPart1.size() - 1);</span>
+<span class="fc" id="L531">                resultPart1.add(&quot;четыре тысячи&quot;);</span>
+            } else {
+<span class="fc" id="L533">                resultPart1.add(&quot;тысяч&quot;);</span>
+            }
+        }
+<span class="fc" id="L536">        resultPart1.addAll(resultPart2);</span>
+<span class="fc" id="L537">        return String.join(&quot; &quot;, resultPart1);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
