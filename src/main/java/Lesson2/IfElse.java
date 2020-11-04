@@ -1,6 +1,6 @@
 package Lesson2;
 
-import Lesson1.task1;
+import Lesson1.Task1;
 
 import static java.lang.StrictMath.max;
 import static java.lang.StrictMath.sqrt;
@@ -8,7 +8,7 @@ import static java.lang.StrictMath.sqrt;
 
 public class IfElse {
 
-    Lesson1.task1 task1 = new task1();
+    Task1 task1 = new Task1();
 
     /**
      * Пример

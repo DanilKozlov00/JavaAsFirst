@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class loopTest {
 
-    loop loop = new loop();
+    Loop loop = new Loop();
 
     @Test
     @Tag("Example")
@@ -79,6 +79,7 @@ class loopTest {
     @Test
     @Tag("Easy")
     void fib() {
+        assertEquals(0, loop.fib(0));
         assertEquals(1, loop.fib(1));
         assertEquals(1, loop.fib(2));
         assertEquals(2, loop.fib(3));
@@ -136,6 +137,7 @@ class loopTest {
     void isCoPrime() {
         assertTrue(loop.isCoPrime(25, 49));
         assertFalse(loop.isCoPrime(6, 8));
+        assertFalse(loop.isCoPrime(6, 6));
         assertTrue(loop.isCoPrime(17, 97));
         assertFalse(loop.isCoPrime(37, 111));
         assertTrue(loop.isCoPrime(1234567890, 908765431));
@@ -148,6 +150,7 @@ class loopTest {
         assertTrue(loop.squareBetweenExists(1, 1));
         assertTrue(loop.squareBetweenExists(21, 28));
         assertTrue(loop.squareBetweenExists(36, 48));
+        assertFalse(loop.squareBetweenExists(46, 30));
         assertTrue(loop.squareBetweenExists(50, 64));
         assertFalse(loop.squareBetweenExists(51, 61));
         assertFalse(loop.squareBetweenExists(999, 1001));

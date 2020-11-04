@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>task1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Test</a> &gt; <a href="index.source.html" class="el_package">Lesson1</a> &gt; <span class="el_source">task1.java</span></div><h1>task1.java</h1><pre class="source lang-java linenums">package Lesson1;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Task1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Test</a> &gt; <a href="index.source.html" class="el_package">Lesson1</a> &gt; <span class="el_source">Task1.java</span></div><h1>Task1.java</h1><pre class="source lang-java linenums">package Lesson1;
 
 import static java.lang.Math.PI;
 import static java.lang.StrictMath.sqrt;
 
-<span class="fc" id="L6">public class task1 {</span>
+<span class="fc" id="L6">public class Task1 {</span>
 
-    public int salary;
 
     /*
      * Пример
@@ -13,7 +12,7 @@ import static java.lang.StrictMath.sqrt;
      * Вычисление квадрата целого числа
      */
     public int sqr(int x) {
-<span class="fc" id="L16">        return x * x;</span>
+<span class="fc" id="L15">        return x * x;</span>
     }
 
 
@@ -23,7 +22,7 @@ import static java.lang.StrictMath.sqrt;
      * Вычисление квадрата вещественного числа
      */
     public double sqrDouble(double x) {
-<span class="fc" id="L26">        return x * x;</span>
+<span class="fc" id="L25">        return x * x;</span>
     }
 
 
@@ -33,7 +32,7 @@ import static java.lang.StrictMath.sqrt;
      * Вычисление дискриминанта квадратного уравнения
      */
     public double  discriminant(double a, double b, double c) {
-<span class="fc" id="L36">        return (sqrDouble(b) - 4 * a * c);</span>
+<span class="fc" id="L35">        return (sqrDouble(b) - 4 * a * c);</span>
     }
 
 
@@ -43,7 +42,7 @@ import static java.lang.StrictMath.sqrt;
      * Поиск одного из корней квадратного уравнения
      */
     double quadraticEquationRoot(double a, double b, double c) {
-<span class="fc" id="L46">        return (-b + sqrt(discriminant(a, b, c))) / (2 * a);</span>
+<span class="fc" id="L45">        return (-b + sqrt(discriminant(a, b, c))) / (2 * a);</span>
     }
 
 
@@ -53,10 +52,10 @@ import static java.lang.StrictMath.sqrt;
      * Поиск произведения корней квадратного уравнения
      */
     double quadraticRootProduct(double a, double b, double c) {
-<span class="fc" id="L56">        double sd = sqrt(discriminant(a, b, c));</span>
-<span class="fc" id="L57">        double x1 = (-b + sd) / (2 * a);</span>
-<span class="fc" id="L58">        double x2 = (-b - sd) / (2 * a);</span>
-<span class="fc" id="L59">        return x1 * x2;</span>
+<span class="fc" id="L55">        double sd = sqrt(discriminant(a, b, c));</span>
+<span class="fc" id="L56">        double x1 = (-b + sd) / (2 * a);</span>
+<span class="fc" id="L57">        double x2 = (-b - sd) / (2 * a);</span>
+<span class="fc" id="L58">        return x1 * x2;</span>
     }
 
 
@@ -67,7 +66,7 @@ import static java.lang.StrictMath.sqrt;
      * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
      */
     int seconds(int hours, int minutes, int seconds) {
-<span class="fc" id="L70">        return hours * 60 * 60 + minutes * 60 + seconds;</span>
+<span class="fc" id="L69">        return hours * 60 * 60 + minutes * 60 + seconds;</span>
     }
 
 
@@ -79,7 +78,7 @@ import static java.lang.StrictMath.sqrt;
      * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
      */
     double lengthInMeters(int sagenes, int arshins, int vershoks) {
-<span class="fc" id="L82">        return (vershoks * 4.445 + arshins * (16 * 4.445) + sagenes * (48 * 4.445)) / 100;</span>
+<span class="fc" id="L81">        return (vershoks * 4.445 + arshins * (16 * 4.445) + sagenes * (48 * 4.445)) / 100;</span>
     }
 
 
@@ -90,7 +89,7 @@ import static java.lang.StrictMath.sqrt;
      * Вывести значение того же угла в радианах (например, 0.63256).
      */
     double angleInRadian(int deg, int min, int sec) {
-<span class="fc" id="L93">        return (deg * (PI / 180)) + (min * (PI / (180 * 60))) + (sec * (PI / (180 * 60 * 60)));</span>
+<span class="fc" id="L92">        return (deg * (PI / 180)) + (min * (PI / (180 * 60))) + (sec * (PI / (180 * 60 * 60)));</span>
     }
 
 
@@ -101,7 +100,7 @@ import static java.lang.StrictMath.sqrt;
      * Например, расстояние между (3, 0) и (0, 4) равно 5
      */
     double trackLength(double x1, double y1, double x2, double y2) {
-<span class="fc" id="L104">        return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));</span>
+<span class="fc" id="L103">        return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));</span>
     }
 
 
@@ -112,12 +111,12 @@ import static java.lang.StrictMath.sqrt;
      * Определить третью цифру справа в этом числе (в данном случае 8).
      */
     int thirdDigit(int number) {
-<span class="fc" id="L115">        int digit = number;</span>
-<span class="fc" id="L116">        digit = digit / 100;</span>
-<span class="fc bfc" id="L117" title="All 2 branches covered.">        while (digit &gt;= 10) {</span>
-<span class="fc" id="L118">            digit %= 10;</span>
+<span class="fc" id="L114">        int digit = number;</span>
+<span class="fc" id="L115">        digit = digit / 100;</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        while (digit &gt;= 10) {</span>
+<span class="fc" id="L117">            digit %= 10;</span>
         }
-<span class="fc" id="L120">        return digit;</span>
+<span class="fc" id="L119">        return digit;</span>
     }
 
 
@@ -129,7 +128,7 @@ import static java.lang.StrictMath.sqrt;
      * Определите время поезда в пути в минутах (в данном случае 216).
      */
     int travelMinutes(int hoursDepart, int minutesDepart, int hoursArrive, int minutesArrive) {
-<span class="fc" id="L132">        return (hoursArrive * 60 + minutesArrive) - (hoursDepart * 60 + minutesDepart);</span>
+<span class="fc" id="L131">        return (hoursArrive * 60 + minutesArrive) - (hoursDepart * 60 + minutesDepart);</span>
     }
 
 
@@ -141,11 +140,11 @@ import static java.lang.StrictMath.sqrt;
      * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
      */
     double accountInThreeYears(int initial, int percent) {
-<span class="fc" id="L144">        double Money = initial;</span>
-<span class="fc bfc" id="L145" title="All 2 branches covered.">        for (int i = 0; i &lt; 3; i++) {</span>
-<span class="fc" id="L146">            Money += Money / 100 * percent;</span>
+<span class="fc" id="L143">        double Money = initial;</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">        for (int i = 0; i &lt; 3; i++) {</span>
+<span class="fc" id="L145">            Money += Money / 100 * percent;</span>
         }
-<span class="fc" id="L148">        return Money;</span>
+<span class="fc" id="L147">        return Money;</span>
     }
 
 
@@ -156,10 +155,10 @@ import static java.lang.StrictMath.sqrt;
      * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
      */
     int numberRevert(int number) {
-<span class="fc" id="L159">        int units = number % 10;</span>
-<span class="fc" id="L160">        int hundreds = number / 100;</span>
-<span class="fc" id="L161">        int dozens = number - (hundreds * 100 + units);</span>
-<span class="fc" id="L162">        return units * 100 + dozens + hundreds;</span>
+<span class="fc" id="L158">        int units = number % 10;</span>
+<span class="fc" id="L159">        int hundreds = number / 100;</span>
+<span class="fc" id="L160">        int dozens = number - (hundreds * 100 + units);</span>
+<span class="fc" id="L161">        return units * 100 + dozens + hundreds;</span>
     }
 
 }

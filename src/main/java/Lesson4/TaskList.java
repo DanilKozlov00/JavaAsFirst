@@ -1,15 +1,14 @@
 package Lesson4;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
-import Lesson1.task1;
+import Lesson1.Task1;
 
 import static java.lang.StrictMath.sqrt;
 
-public class list {
+public class TaskList {
 
-    task1 task1 = new task1();
+    Task1 task1 = new Task1();
 
     /**
      * Пример
@@ -43,7 +42,7 @@ public class list {
             else return sqRoots(-c / b);
         }
         double d = task1.discriminant(a, b, c);
-        if (d < 0.0) return new LinkedList<Double>();
+        if (d < 0.0) return new LinkedList<>();
         if (d == 0.0) return sqRoots(-b / (2 * a));
         double y1 = (-b + sqrt(d)) / (2 * a);
         double y2 = (-b - sqrt(d)) / (2 * a);
@@ -137,7 +136,7 @@ public class list {
      * 3 + 6 + 5 + 4 + 9 = 27 в данном случае.
      */
     String buildSumExample(LinkedList<Integer> list) {
-        StringBuilder result = new StringBuilder("");
+        StringBuilder result = new StringBuilder();
         int sum = 0;
         for (int i : list) {
             result.append(i).append(" + ");
@@ -169,7 +168,7 @@ public class list {
     /**
      * Простая
      * <p>
-     * Рассчитать среднее арифметическое элементов списка list. Вернуть 0.0, если список пуст
+     * Рассчитать среднее арифметическое элементов списка TaskList. Вернуть 0.0, если список пуст
      */
     double mean(LinkedList<Double> list) {
         double sum = 0.0;
@@ -187,10 +186,10 @@ public class list {
     /**
      * Средняя
      * <p>
-     * Центрировать заданный список list, уменьшив каждый элемент на среднее арифметическое всех элементов.
+     * Центрировать заданный список TaskList, уменьшив каждый элемент на среднее арифметическое всех элементов.
      * Если список пуст, не делать ничего. Вернуть изменённый список.
      * <p>
-     * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
+     * Обратите внимание, что данная функция должна изменять содержание списка TaskList, а не его копии.
      */
     LinkedList<Double> center(LinkedList<Double> list) {
         double sum = 0.0;
@@ -255,15 +254,15 @@ public class list {
     /**
      * Средняя
      * <p>
-     * В заданном списке list каждый элемент, кроме первого, заменить
+     * В заданном списке TaskList каждый элемент, кроме первого, заменить
      * суммой данного элемента и всех предыдущих.
      * Например: 1, 2, 3, 4 -> 1, 3, 6, 10.
      * Пустой список не следует изменять. Вернуть изменённый список.
      * <p>
-     * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
+     * Обратите внимание, что данная функция должна изменять содержание списка TaskList, а не его копии.
      */
     ArrayList<Integer> accumulate(ArrayList<Integer> list) {
-        int sum = 0;
+        int sum;
         if (!list.isEmpty()) {
             sum = list.get(0);
             for (int i = 1; i < list.size(); i++) {
@@ -430,12 +429,11 @@ public class list {
                         if (temp == romanDigitList.get(j)) {
                             str.append(romanAlpList.get(j));
                             temp -= romanDigitList.get(j);
-                            break;
                         } else {
                             str.append(romanAlpList.get(j - 1));
                             temp -= romanDigitList.get(j - 1);
-                            break;
                         }
+                        break;
                     }
                 }
             }
@@ -452,7 +450,7 @@ public class list {
      * 23964 = "двадцать три тысячи девятьсот шестьдесят четыре"
      */
     String russian(int n) {
-        HashMap<Integer, String> map = new HashMap<Integer, String>();
+        HashMap<Integer, String> map = new HashMap<>();
         map.put(1, "один");
         map.put(2, "два");
         map.put(3, "три");

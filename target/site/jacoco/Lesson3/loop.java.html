@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>loop.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Test</a> &gt; <a href="index.source.html" class="el_package">Lesson3</a> &gt; <span class="el_source">loop.java</span></div><h1>loop.java</h1><pre class="source lang-java linenums">package Lesson3;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Loop.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Test</a> &gt; <a href="index.source.html" class="el_package">Lesson3</a> &gt; <span class="el_source">Loop.java</span></div><h1>Loop.java</h1><pre class="source lang-java linenums">package Lesson3;
 
-import Lesson1.task1;
+import Lesson1.Task1;
 
-<span class="fc" id="L5">public class loop {</span>
+<span class="fc" id="L5">public class Loop {</span>
 
-<span class="fc" id="L7">    task1 task1 = new task1();</span>
+<span class="fc" id="L7">    Task1 task1 = new Task1();</span>
 
     /**
      * Пример
@@ -97,7 +97,7 @@ import Lesson1.task1;
 <span class="fc" id="L97">        int fib_n = 1;</span>
 <span class="fc" id="L98">        int fib_n1 = 1;</span>
 <span class="fc" id="L99">        int fib_n2 = 0;</span>
-<span class="pc bpc" id="L100" title="1 of 4 branches missed.">        if (n &gt;= 1 &amp;&amp; n &lt;= 2) {</span>
+<span class="fc bfc" id="L100" title="All 4 branches covered.">        if (n &gt;= 1 &amp;&amp; n &lt;= 2) {</span>
 <span class="fc" id="L101">            return 1;</span>
         }
 <span class="fc bfc" id="L103" title="All 2 branches covered.">        for (int i = 3; i &lt;= n; i++) {</span>
@@ -219,13 +219,12 @@ import Lesson1.task1;
 <span class="fc bfc" id="L219" title="All 2 branches covered.">        while (digit != 1) {</span>
 <span class="fc bfc" id="L220" title="All 2 branches covered.">            if (digit % 2 == 0) {</span>
 <span class="fc" id="L221">                digit /= 2;</span>
-<span class="fc" id="L222">                steps++;</span>
             } else {
-<span class="fc" id="L224">                digit = 3 * digit + 1;</span>
-<span class="fc" id="L225">                steps++;</span>
+<span class="fc" id="L223">                digit = 3 * digit + 1;</span>
             }
+<span class="fc" id="L225">            steps++;</span>
         }
-<span class="fc" id="L228">        return steps;</span>
+<span class="fc" id="L227">        return steps;</span>
     }
 
 
@@ -239,22 +238,22 @@ import Lesson1.task1;
      * Использовать kotlin.math.sin и другие стандартные реализации функции синуса в этой задаче запрещается.
      */
     double sin(double x, double eps) {
-<span class="fc" id="L242">        int number = 1;</span>
-<span class="fc" id="L243">        int digit = 3;</span>
-<span class="fc" id="L244">        double xx = (x % (2 * Math.PI));</span>
-<span class="fc" id="L245">        double absEps = Math.abs(eps);</span>
-<span class="fc" id="L246">        double sin = xx;</span>
-<span class="fc" id="L247">        double currentExp = xx;</span>
-<span class="fc" id="L248">        double part = xx;</span>
-<span class="fc bfc" id="L249" title="All 2 branches covered.">        while (Math.abs(part) &gt;= absEps) {</span>
-<span class="fc" id="L250">            currentExp *= xx * xx;</span>
-<span class="fc bfc" id="L251" title="All 2 branches covered.">            if (number % 2 != 0) part = (-1 * currentExp / factorial(digit));</span>
-<span class="fc" id="L252">            else part = (currentExp / factorial(digit));</span>
-<span class="fc" id="L253">            sin += part;</span>
-<span class="fc" id="L254">            number += 1;</span>
-<span class="fc" id="L255">            digit += 2;</span>
+<span class="fc" id="L241">        int number = 1;</span>
+<span class="fc" id="L242">        int digit = 3;</span>
+<span class="fc" id="L243">        double xx = (x % (2 * Math.PI));</span>
+<span class="fc" id="L244">        double absEps = Math.abs(eps);</span>
+<span class="fc" id="L245">        double sin = xx;</span>
+<span class="fc" id="L246">        double currentExp = xx;</span>
+<span class="fc" id="L247">        double part = xx;</span>
+<span class="fc bfc" id="L248" title="All 2 branches covered.">        while (Math.abs(part) &gt;= absEps) {</span>
+<span class="fc" id="L249">            currentExp *= xx * xx;</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">            if (number % 2 != 0) part = (-1 * currentExp / factorial(digit));</span>
+<span class="fc" id="L251">            else part = (currentExp / factorial(digit));</span>
+<span class="fc" id="L252">            sin += part;</span>
+<span class="fc" id="L253">            number += 1;</span>
+<span class="fc" id="L254">            digit += 2;</span>
         }
-<span class="fc" id="L257">        return sin;</span>
+<span class="fc" id="L256">        return sin;</span>
     }
 
 
@@ -268,22 +267,22 @@ import Lesson1.task1;
      * Использовать kotlin.math.cos и другие стандартные реализации функции косинуса в этой задаче запрещается.
      */
     double cos(double x, double eps) {
-<span class="fc" id="L271">        double cos = 1.0;</span>
+<span class="fc" id="L270">        double cos = 1.0;</span>
         double part;
-<span class="fc" id="L273">        int number = 1;</span>
-<span class="fc" id="L274">        int digit = 2;</span>
-<span class="fc" id="L275">        double xx = x % (2 * Math.PI);</span>
-<span class="fc" id="L276">        double absEps = Math.abs(eps);</span>
-<span class="fc" id="L277">        double currentExp = 1.0;</span>
+<span class="fc" id="L272">        int number = 1;</span>
+<span class="fc" id="L273">        int digit = 2;</span>
+<span class="fc" id="L274">        double xx = x % (2 * Math.PI);</span>
+<span class="fc" id="L275">        double absEps = Math.abs(eps);</span>
+<span class="fc" id="L276">        double currentExp = 1.0;</span>
         do {
-<span class="fc" id="L279">            currentExp *= xx * xx;</span>
-<span class="fc bfc" id="L280" title="All 2 branches covered.">            if (number % 2 != 0) part = -1 * currentExp / factorial(digit);</span>
-<span class="fc" id="L281">            else part = currentExp / factorial(digit);</span>
-<span class="fc" id="L282">            cos += part;</span>
-<span class="fc" id="L283">            number += 1;</span>
-<span class="fc" id="L284">            digit += 2;</span>
-<span class="fc bfc" id="L285" title="All 2 branches covered.">        } while (Math.abs(part) &gt;= absEps);</span>
-<span class="fc" id="L286">        return cos;</span>
+<span class="fc" id="L278">            currentExp *= xx * xx;</span>
+<span class="fc bfc" id="L279" title="All 2 branches covered.">            if (number % 2 != 0) part = -1 * currentExp / factorial(digit);</span>
+<span class="fc" id="L280">            else part = currentExp / factorial(digit);</span>
+<span class="fc" id="L281">            cos += part;</span>
+<span class="fc" id="L282">            number += 1;</span>
+<span class="fc" id="L283">            digit += 2;</span>
+<span class="fc bfc" id="L284" title="All 2 branches covered.">        } while (Math.abs(part) &gt;= absEps);</span>
+<span class="fc" id="L285">        return cos;</span>
     }
 
 
@@ -295,18 +294,18 @@ import Lesson1.task1;
      * Использовать операции со строками в этой задаче запрещается.
      */
     int revert(int n) {
-<span class="fc" id="L298">        int revert = 0;</span>
-<span class="fc" id="L299">        int temp = n;</span>
-<span class="fc bfc" id="L300" title="All 2 branches covered.">        if (n &lt; 0) {</span>
-<span class="fc" id="L301">            temp *= -1;</span>
+<span class="fc" id="L297">        int revert = 0;</span>
+<span class="fc" id="L298">        int temp = n;</span>
+<span class="fc bfc" id="L299" title="All 2 branches covered.">        if (n &lt; 0) {</span>
+<span class="fc" id="L300">            temp *= -1;</span>
         }
-<span class="fc bfc" id="L303" title="All 2 branches covered.">        while (temp &gt; 0) {</span>
-<span class="fc" id="L304">            revert = revert * 10 + temp % 10;</span>
-<span class="fc" id="L305">            temp /= 10;</span>
+<span class="fc bfc" id="L302" title="All 2 branches covered.">        while (temp &gt; 0) {</span>
+<span class="fc" id="L303">            revert = revert * 10 + temp % 10;</span>
+<span class="fc" id="L304">            temp /= 10;</span>
         }
-<span class="fc bfc" id="L307" title="All 2 branches covered.">        if (n &lt; 0)</span>
-<span class="fc" id="L308">            return revert * -1;</span>
-<span class="fc" id="L309">        else return revert;</span>
+<span class="fc bfc" id="L306" title="All 2 branches covered.">        if (n &lt; 0)</span>
+<span class="fc" id="L307">            return revert * -1;</span>
+<span class="fc" id="L308">        else return revert;</span>
     }
 
 
@@ -319,7 +318,7 @@ import Lesson1.task1;
      *
      * Использовать операции со строками в этой задаче запрещается.
      */
-<span class="fc bfc" id="L322" title="All 4 branches covered.">    boolean isPalindrome(int n) { return n&gt;=0 &amp;&amp; n == revert(n);}</span>
+<span class="fc bfc" id="L321" title="All 4 branches covered.">    boolean isPalindrome(int n) { return n&gt;=0 &amp;&amp; n == revert(n);}</span>
 
 
 
@@ -332,28 +331,28 @@ import Lesson1.task1;
      * Использовать операции со строками в этой задаче запрещается.
      */
     boolean hasDifferentDigits(int n) {
-<span class="fc" id="L335">        int lastDigit = n % 10;</span>
-<span class="fc" id="L336">        int digit = (n - lastDigit) / 10;</span>
-<span class="fc bfc" id="L337" title="All 4 branches covered.">        if (n&gt;=-9&amp;&amp;n&lt;=9) {</span>
-<span class="fc" id="L338">            return false;</span>
+<span class="fc" id="L334">        int lastDigit = n % 10;</span>
+<span class="fc" id="L335">        int digit = (n - lastDigit) / 10;</span>
+<span class="fc bfc" id="L336" title="All 4 branches covered.">        if (n&gt;=-9&amp;&amp;n&lt;=9) {</span>
+<span class="fc" id="L337">            return false;</span>
         }
-<span class="fc bfc" id="L340" title="All 2 branches covered.">        if (n &lt; 0) {</span>
-<span class="fc" id="L341">            return true;</span>
+<span class="fc bfc" id="L339" title="All 2 branches covered.">        if (n &lt; 0) {</span>
+<span class="fc" id="L340">            return true;</span>
         }
-<span class="fc bfc" id="L343" title="All 2 branches covered.">        if (digitNumber(n) == 2) {</span>
-<span class="fc bfc" id="L344" title="All 2 branches covered.">            return lastDigit != digit;</span>
+<span class="fc bfc" id="L342" title="All 2 branches covered.">        if (digitNumber(n) == 2) {</span>
+<span class="fc bfc" id="L343" title="All 2 branches covered.">            return lastDigit != digit;</span>
         } else {
-<span class="fc" id="L346">            int penultimateDigit = digit % 10;</span>
-<span class="fc" id="L347">            digit = (digit - penultimateDigit) / 10;</span>
-<span class="fc bfc" id="L348" title="All 2 branches covered.">            while (digit != 0) {</span>
-<span class="fc bfc" id="L349" title="All 2 branches covered.">                if (lastDigit != penultimateDigit) {</span>
-<span class="fc" id="L350">                    return true;</span>
+<span class="fc" id="L345">            int penultimateDigit = digit % 10;</span>
+<span class="fc" id="L346">            digit = (digit - penultimateDigit) / 10;</span>
+<span class="fc bfc" id="L347" title="All 2 branches covered.">            while (digit != 0) {</span>
+<span class="fc bfc" id="L348" title="All 2 branches covered.">                if (lastDigit != penultimateDigit) {</span>
+<span class="fc" id="L349">                    return true;</span>
                 }
-<span class="fc" id="L352">                penultimateDigit = digit % 10;</span>
-<span class="fc" id="L353">                digit = (digit - penultimateDigit) / 10;</span>
+<span class="fc" id="L351">                penultimateDigit = digit % 10;</span>
+<span class="fc" id="L352">                digit = (digit - penultimateDigit) / 10;</span>
             }
         }
-<span class="fc" id="L356">        return false;</span>
+<span class="fc" id="L355">        return false;</span>
     }
 
 
@@ -367,19 +366,19 @@ import Lesson1.task1;
      * Использовать операции со строками в этой задаче запрещается.
      */
     int squareSequenceDigit(int n) {
-<span class="fc" id="L370">        int digit = 0;</span>
-<span class="fc" id="L371">        int number = 1;</span>
-<span class="fc" id="L372">        int square = 1;</span>
-<span class="fc bfc" id="L373" title="All 2 branches covered.">        while (digit != n) {</span>
-<span class="fc" id="L374">            square = number * number;</span>
-<span class="fc" id="L375">            digit += digitNumber(square);</span>
-<span class="fc bfc" id="L376" title="All 2 branches covered.">            while (n &lt; digit) {</span>
-<span class="fc" id="L377">                square /= 10;</span>
-<span class="fc" id="L378">                digit--;</span>
+<span class="fc" id="L369">        int digit = 0;</span>
+<span class="fc" id="L370">        int number = 1;</span>
+<span class="fc" id="L371">        int square = 1;</span>
+<span class="fc bfc" id="L372" title="All 2 branches covered.">        while (digit != n) {</span>
+<span class="fc" id="L373">            square = number * number;</span>
+<span class="fc" id="L374">            digit += digitNumber(square);</span>
+<span class="fc bfc" id="L375" title="All 2 branches covered.">            while (n &lt; digit) {</span>
+<span class="fc" id="L376">                square /= 10;</span>
+<span class="fc" id="L377">                digit--;</span>
             }
-<span class="fc" id="L380">            number++;</span>
+<span class="fc" id="L379">            number++;</span>
         }
-<span class="fc" id="L382">        return square % 10;</span>
+<span class="fc" id="L381">        return square % 10;</span>
     }
 
 
@@ -393,19 +392,19 @@ import Lesson1.task1;
      * Использовать операции со строками в этой задаче запрещается.
      */
     int fibSequenceDigit(int n) {
-<span class="fc" id="L396">        int digit = 0;</span>
-<span class="fc" id="L397">        int number = 1;</span>
-<span class="fc" id="L398">        int fib = 1;</span>
-<span class="fc bfc" id="L399" title="All 2 branches covered.">        while (n != digit) {</span>
-<span class="fc" id="L400">            fib = fib(number);</span>
-<span class="fc" id="L401">            digit += digitNumber(fib);</span>
-<span class="fc bfc" id="L402" title="All 2 branches covered.">            while (n &lt; digit) {</span>
-<span class="fc" id="L403">                fib /= 10;</span>
-<span class="fc" id="L404">                digit--;</span>
+<span class="fc" id="L395">        int digit = 0;</span>
+<span class="fc" id="L396">        int number = 1;</span>
+<span class="fc" id="L397">        int fib = 1;</span>
+<span class="fc bfc" id="L398" title="All 2 branches covered.">        while (n != digit) {</span>
+<span class="fc" id="L399">            fib = fib(number);</span>
+<span class="fc" id="L400">            digit += digitNumber(fib);</span>
+<span class="fc bfc" id="L401" title="All 2 branches covered.">            while (n &lt; digit) {</span>
+<span class="fc" id="L402">                fib /= 10;</span>
+<span class="fc" id="L403">                digit--;</span>
             }
-<span class="fc" id="L406">            number++;</span>
+<span class="fc" id="L405">            number++;</span>
         }
-<span class="fc" id="L408">        return fib % 10;</span>
+<span class="fc" id="L407">        return fib % 10;</span>
     }
 }
 

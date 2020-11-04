@@ -1,10 +1,10 @@
 package Lesson3;
 
-import Lesson1.task1;
+import Lesson1.Task1;
 
-public class loop {
+public class Loop {
 
-    task1 task1 = new task1();
+    Task1 task1 = new Task1();
 
     /**
      * Пример
@@ -219,11 +219,10 @@ public class loop {
         while (digit != 1) {
             if (digit % 2 == 0) {
                 digit /= 2;
-                steps++;
             } else {
                 digit = 3 * digit + 1;
-                steps++;
             }
+            steps++;
         }
         return steps;
     }

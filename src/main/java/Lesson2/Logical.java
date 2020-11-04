@@ -1,10 +1,10 @@
 package Lesson2;
 
-import Lesson1.task1;
+import Lesson1.Task1;
 
-public class logical {
+public class Logical {
 
-    task1 task1 = new task1();
+    Task1 task1 = new Task1();
 
     /**
      * Пример

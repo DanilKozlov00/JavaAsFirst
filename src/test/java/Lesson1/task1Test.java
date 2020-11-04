@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class task1Test {
 
-    task1 task1 = new task1();
+    Task1 task1 = new Task1();
 
     @Test
     @Tag("Example")

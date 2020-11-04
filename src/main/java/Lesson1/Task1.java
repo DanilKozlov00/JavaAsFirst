@@ -3,9 +3,8 @@ package Lesson1;
 import static java.lang.Math.PI;
 import static java.lang.StrictMath.sqrt;
 
-public class task1 {
+public class Task1 {
 
-    public int salary;
 
     /*
      * Пример

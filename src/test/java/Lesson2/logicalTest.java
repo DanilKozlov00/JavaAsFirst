@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class logicalTest {
 
-    logical logical = new logical();
+    Logical logical = new Logical();
 
     @Test
     @Tag("Example")
