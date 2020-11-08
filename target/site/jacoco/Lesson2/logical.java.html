@@ -41,70 +41,73 @@ import Lesson1.Task1;
 
     /**
      * Простая
-     *
+     * &lt;p&gt;
      * Дан номер месяца (от 1 до 12 включительно) и год (положительный).
      * Вернуть число дней в этом месяце этого года по григорианскому календарю.
      */
-    int daysInMonth(int month,int year) {
+    public int daysInMonth(int month, int year) {
 <span class="fc bfc" id="L49" title="All 2 branches covered.">        if (month == 2)</span>
-<span class="fc bfc" id="L50" title="All 2 branches covered.">             if (year % 400 == 0) {</span>
-<span class="fc" id="L51">             return 29;</span>
-<span class="fc bfc" id="L52" title="All 2 branches covered.">        } else if (year % 100 == 0) {</span>
-<span class="fc" id="L53">           return  28;</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">        } else if (year % 4 == 0) {</span>
-<span class="fc" id="L55">           return  29;</span>
-        } else {
-<span class="fc" id="L57">           return 28;</span>
-        }
-    else {
-<span class="fc bfc" id="L60" title="All 3 branches covered.">        switch (month) {</span>
-            case 1:
-            case 5:
-            case 3:
-            case 8:
-            case 10:
-            case 7:
-            case 12:
-<span class="fc" id="L68">                return 31 ;</span>
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-<span class="fc" id="L73">                return 30;</span>
-<span class="fc" id="L74">            default: return -1;</span>
-        }
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (year % 400 == 0) {</span>
+<span class="fc" id="L51">                return 29;</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            } else if (year % 100 == 0) {</span>
+<span class="fc" id="L53">                return 28;</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">            } else if (year % 4 == 0) {</span>
+<span class="fc" id="L55">                return 29;</span>
+            } else {
+<span class="fc" id="L57">                return 28;</span>
+            }
+        else {
+<span class="fc bfc" id="L60" title="All 3 branches covered.">            switch (month) {</span>
+                case 1:
+                case 5:
+                case 3:
+                case 8:
+                case 10:
+                case 7:
+                case 12:
+<span class="fc" id="L68">                    return 31;</span>
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+<span class="fc" id="L73">                    return 30;</span>
+                default:
+<span class="fc" id="L75">                    return -1;</span>
+            }
         }
     }
 
 
     /**
      * Средняя
-     *
+     * &lt;p&gt;
      * Проверить, лежит ли окружность с центром в (x1, y1) и радиусом r1 целиком внутри
      * окружности с центром в (x2, y2) и радиусом r2.
      * Вернуть true, если утверждение верно
      */
     boolean circleInside(
-           double x1,double y1,double r1,
-           double x2,double y2,double r2
+            double x1, double y1, double r1,
+            double x2, double y2, double r2
     ) {
-<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (r2 &lt; r1) {</span>
-<span class="fc" id="L92">            return false;</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (r2 &lt; r1) {</span>
+<span class="fc" id="L93">            return false;</span>
         }
-<span class="fc bfc" id="L94" title="All 2 branches covered.">        return (task1.sqrDouble(x2 - x1) + task1.sqrDouble(y2 - y1) &lt;= task1.sqrDouble(r2 - r1));</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        return (task1.sqrDouble(x2 - x1) + task1.sqrDouble(y2 - y1) &lt;= task1.sqrDouble(r2 - r1));</span>
     }
 
 
     /**
      * Средняя
-     *
+     * &lt;p&gt;
      * Определить, пройдет ли кирпич со сторонами а, b, c сквозь прямоугольное отверстие в стене со сторонами r и s.
      * Стороны отверстия должны быть параллельны граням кирпича.
      * Считать, что совпадения длин сторон достаточно для прохождения кирпича, т.е., например,
      * кирпич 4 х 4 х 4 пройдёт через отверстие 4 х 4.
      * Вернуть true, если кирпич пройдёт
      */
-<span class="fc bfc" id="L107" title="All 6 branches covered.">    boolean brickPasses(int a,int b,int c,int r,int s)  {return a * b &lt;= r * s || a * c &lt;= r * s || c * b &lt;= r * s;}</span>
+    boolean brickPasses(int a, int b, int c, int r, int s) {
+<span class="fc bfc" id="L109" title="All 6 branches covered.">        return a * b &lt;= r * s || a * c &lt;= r * s || c * b &lt;= r * s;</span>
+    }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
