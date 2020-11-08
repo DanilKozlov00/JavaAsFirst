@@ -1,6 +1,6 @@
 # JavaAsFirst
 [![Build Status](https://travis-ci.com/DanilKozlov00/JavaAsFirst.svg?branch=master)](https://travis-ci.com/DanilKozlov00/JavaAsFirst)
-[![codecov](https://codecov.io/gh/DanilKozlov00/JavaAsFirst/branch/master/graph/badge.svg?token=fayfXbjm7X)](undefined)
+[![codecov](https://codecov.io/gh/DanilKozlov00/JavaAsFirst/branch/master/graph/badge.svg?token=fayfXbjm7X)](https://codecov.io/gh/DanilKozlov00/JavaAsFirst)
 
 Решение заданий репозитория https://github.com/DanilKozlov00/KotlinAsFirst-Coursera-v2019, только на языке Java.
 
